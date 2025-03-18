@@ -1,0 +1,36 @@
+newmtl head
+	Ns 0
+	d 1
+	illum 2
+	Kd 1.0 1.0 1.0
+	Ks 0.0 0.0 0.0
+	Ka 0.2 0.2 0.2
+	map_Kd iota_diffuse_hd.png
+
+newmtl iota
+	Ns 0
+	d 1
+	illum 2
+	Kd 1.0 1.0 1.0
+	Ks 0.0 0.0 0.0
+	Ka 0.2 0.2 0.2
+	map_Kd iota_diffuse_tints.png
+
+newmtl stamp
+	Ns 0
+	d 1
+	illum 2
+	Kd 1.0 1.0 1.0
+	Ks 0.0 0.0 0.0
+	Ka 0.2 0.2 0.2
+	map_Kd iota_stamp.png
+
+newmtl base
+	Ns 0
+	d 1
+	illum 2
+	Kd 1.0 1.0 1.0
+	Ks 0.0 0.0 0.0
+	Ka 0.2 0.2 0.2
+	map_Kd tearaway_stautebase_c.png
+
