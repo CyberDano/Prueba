@@ -14,7 +14,7 @@ public class SessionManager : MonoBehaviour
     [Header("Valida si se quiere mantener la sesión activa")][SerializeField] private bool keepLog;
     public Session sessionManager;
     [Header("Alterna entre conservar o no la sesión a iniciar")]public Toggle toggle;
-    [Header("(Optional) Info de la sesión activa")] public TextMeshProUGUI textJSON;
+    [Header("(Opcional) Info de la sesión activa")] public TextMeshProUGUI textJSON;
 
     private void Start()
     {

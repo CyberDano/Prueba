@@ -43,13 +43,7 @@ public class UploadUser : MonoBehaviour
         // Enviar la solicitud y esperar la respuesta
         yield return ask.SendWebRequest();
 
-        if (ask.result == UnityWebRequest.Result.ConnectionError || ask.result == UnityWebRequest.Result.ProtocolError)
-        {
-            Debug.LogError($"Error: {ask.error}"); // Mostrar error en caso de fallo
-        }
-        else
-        {
-            Debug.Log($"Respuesta del servidor: {ask.downloadHandler.text}"); // Mostrar respuesta del servidor
-        }
+        if (ask.result == UnityWebRequest.Result.Success) Debug.Log($"Respuesta del servidor: {ask.downloadHandler.text}"); // Mostrar respuesta del servidor
+        else Debug.LogError($"Error: {ask.error}"); // Mostrar error en caso de fallo            
     }
 }

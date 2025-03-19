@@ -35,10 +35,7 @@ public class UploadNewRegister : MonoBehaviour
         // Enviar la solicitud y esperar la respuesta
         yield return ask.SendWebRequest();
 
-        if (ask.result == UnityWebRequest.Result.Success)
-        {
-            Debug.Log($"Message: {ask.downloadHandler.text}"); // Respuesta
-        }
+        if (ask.result == UnityWebRequest.Result.Success) Debug.Log($"Message: {ask.downloadHandler.text}"); // Respuesta
         else Debug.Log($"Error: {ask.error}"); // Mostrar error en caso de fallo         
     }
 }
