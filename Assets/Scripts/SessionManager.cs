@@ -28,7 +28,7 @@ public class SessionManager : MonoBehaviour
             if (sessionManager.session.nick != "") textJSON.text = $"You are: <color=blue>{sessionManager.session.nick}</color>\nYour mail: <color=blue>{sessionManager.session.mail}</color>";
             else textJSON.text = $"You are: <color=blue>\"\"</color>\nYour mail: <color=blue>{sessionManager.session.mail}</color>";
         }
-        catch { textJSON.text = ""; }
+        catch { }
     }
     public void SetNick(string nickname)
     {
