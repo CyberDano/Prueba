@@ -39,7 +39,7 @@ public class RegisterRequest : MonoBehaviour
         form.AddField("register", register); // Pasa el índice numérico del registro (1, 2, 3)
         form.AddField("mail", UserData.sessionManager.session.mail);
         form.AddField("pass", UserData.sessionManager.session.pass);
-        ask = UnityWebRequest.Post(URL + "getregister.php", form); // Método POST
+        ask = UnityWebRequest.Post(URL + "get_register.php", form); // Método POST
         yield return ask.SendWebRequest(); // Realiza el envío de la consulta
         if (ask.result == UnityWebRequest.Result.Success)
         {

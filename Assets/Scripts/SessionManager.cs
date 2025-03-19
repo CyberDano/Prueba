@@ -193,7 +193,7 @@ public class SessionManager : MonoBehaviour
         form.AddField("mail", sessionManager.session.mail);
         form.AddField("pass", sessionManager.session.pass);
         form.AddField("action", action); // "online" u "offline"
-        UnityWebRequest ask = UnityWebRequest.Post(URL + "usersession.php", form);
+        UnityWebRequest ask = UnityWebRequest.Post(URL + "user_session.php", form);
         {
             yield return ask.SendWebRequest();
 

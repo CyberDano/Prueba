@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
-using static UnityEditor.ShaderData;
 
 public class UploadNewRegister : MonoBehaviour
 {
