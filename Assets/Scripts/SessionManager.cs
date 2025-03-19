@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class SessionManager : MonoBehaviour
 {
+    [Header("URL Y DATOS DE SESIÓN")]
     [SerializeField] private string URL;
     [SerializeField] private string nick;
     [SerializeField] private string user;
     [SerializeField] private string password;
-    [SerializeField] private bool keepLog;
+    [Header("Valida si se quiere mantener la sesión activa")][SerializeField] private bool keepLog;
     public Session sessionManager;
-    public Toggle toggle;
-    public TextMeshProUGUI textJSON;
+    [Header("Alterna entre conservar o no la sesión a iniciar")]public Toggle toggle;
+    [Header("(Optional) Info de la sesión activa")] public TextMeshProUGUI textJSON;
 
     private void Start()
     {

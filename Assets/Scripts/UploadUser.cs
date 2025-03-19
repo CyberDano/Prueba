@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 
 public class UploadUser : MonoBehaviour
 {
+    [Header("URL Y DATOS DE SESIÓN")]
     [SerializeField] private string URL; // URL del script PHP
     [SerializeField] private string nickname; // Apodo del usuario
     [SerializeField] private string mail; // Email del usuario

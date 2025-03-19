@@ -896,9 +896,9 @@ GameObject:
   - component: {fileID: 177292510}
   - component: {fileID: 177292511}
   m_Layer: 0
-  m_Name: PHPTest
+  m_Name: SESSION MANAGEMENT
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -931,8 +931,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   URL: http://stickrock.mygamesonline.org/new_user.php
   nickname: 
-  mail: tommy@mail.com
-  pass: cev12345
+  mail: 
+  pass: 
 --- !u!114 &177292508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,10 +964,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb6cc1653bd9cf4480875aab24503ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UserData: {fileID: 177292508}
   URL: http://stickrock.mygamesonline.org/
   register: 1
   register_name: 
-  UserData: {fileID: 177292508}
 --- !u!114 &177292510
 MonoBehaviour:
   m_ObjectHideFlags: 0

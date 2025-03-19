@@ -3,6 +3,9 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
+/// <summary>
+/// Estructura para estructurar las credenciales de la sesión
+/// </summary>
 [System.Serializable]
 public class UserSession
 {
@@ -10,6 +13,9 @@ public class UserSession
     public string mail; // Correo del usuario
     public string pass; // Clave del usuario
 }
+/// <summary>
+/// Clase para manejar las credenciales de la sesión
+/// </summary>
 public class Session
 {
     public UserSession session;    
@@ -28,6 +34,9 @@ public class Session
     public void ClearSession() { session = null; }
 }
 /* ------------------------- CLASE PARA CIFRAR CREDENCIALES ------------------------- */
+/// <summary>
+/// Clase encargada de encriptar y desencriptar una sesión
+/// </summary>
 public class FileSecurity
 {
     private static readonly string key = "StickAndRock2025"; // Clave AES-16 (16, 24 o 32 caracteres)

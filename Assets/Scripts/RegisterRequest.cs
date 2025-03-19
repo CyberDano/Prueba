@@ -16,10 +16,11 @@ public class Register_tile
 }
 public class RegisterRequest : MonoBehaviour
 {
-    public string URL;
-    [SerializeField] private int register;
-    [SerializeField] private string register_name;
+    [Header("Referenciar a SessionManager.cs")]
     [SerializeField] private SessionManager UserData;
+    [SerializeField] private string URL;
+    [Header("Índice del registro")][SerializeField] private int register;
+    [SerializeField] private string register_name; // Guarda el nombre del registro
     /// <summary>
     /// Comienza la corutina de obtención de los datos del registro del usuario
     /// </summary>
@@ -41,18 +42,15 @@ public class RegisterRequest : MonoBehaviour
         form.AddField("pass", UserData.sessionManager.session.pass);
         ask = UnityWebRequest.Post(URL + "get_register.php", form); // Método POST
         yield return ask.SendWebRequest(); // Realiza el envío de la consulta
+
         if (ask.result == UnityWebRequest.Result.Success)
         {
             string[] text = ask.downloadHandler.text.Split("=JSON=");            
             register_name = text[0];
-            Debug.Log("Register name "+text[0]);
-            Debug.Log(text[1]);
+            Debug.Log("Register name "+register_name);
             Register_tile tile = JsonUtility.FromJson<Register_tile>(text[1]);
             Debug.Log($"Max. world reached: {tile.world} - Max. level reached: {tile.level}");
         }
-        else
-        {
-            Debug.LogError("Error: " + ask.error);
-        }
+        else Debug.LogError("Error: " + ask.error);
     }
 }

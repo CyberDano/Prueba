@@ -4,9 +4,10 @@ using UnityEngine.Networking;
 
 public class UploadNewRegister : MonoBehaviour
 {
+    [Header("Referenciar a SessonManager.cs")]
     [SerializeField] private SessionManager UserData;
     [SerializeField] private string URL; // URL del script PHP
-    [SerializeField] private string regis_name; // Nuevo registro
+    [Header("Nombre del nuevo registro")][SerializeField] private string regis_name; // Nuevo registro
 
     /// <summary>
     /// Inicia la petición para crear un nuevo registro.

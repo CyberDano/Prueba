@@ -5,11 +5,12 @@ using UnityEngine.Networking;
 
 public class UpdateRegister : MonoBehaviour
 {
+    [Header("Referenciar a SessionManager.cs")]
     [SerializeField] private SessionManager UserData;
     [SerializeField] private string URL; // URL del script PHP
-    [SerializeField] private int register;
-    [SerializeField] private int world;
-    [SerializeField] private int level;
+    [Header("Índice del registro")][SerializeField] private int register;
+    [Header("Índice del mundo")][SerializeField] private int world;
+    [Header("Índice del nivel")][SerializeField] private int level;
 
     /// <summary>
     /// Inicia la petición para actualizar los datos del nivel.
