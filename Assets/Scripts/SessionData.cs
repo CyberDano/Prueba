@@ -12,10 +12,8 @@ public class UserSession
 }
 public class Session
 {
-    public UserSession session;
-
-    // Constructor para la sesión
-    public Session(string nickname, string email, string passd)
+    public UserSession session;    
+    public Session(string nickname, string email, string passd) // Constructor para la sesión
     {
         session = new UserSession
         {
@@ -25,7 +23,7 @@ public class Session
         };
     }
     /// <summary>
-    /// Método para limpiar los datos al cerrar sesión
+    /// Método para limpiar los datos de la sesión (en ejecución)
     /// </summary>
     public void ClearSession() { session = null; }
 }
@@ -36,7 +34,7 @@ public class FileSecurity
     /// <summary>
     /// Encripta los datos
     /// </summary>
-    /// <param name="plainText"></param>
+    /// <param name="plainText">Código que va a ser encriptado</param>
     /// <returns></returns>
     public static string Encrypt(string plainText)
     {
@@ -63,7 +61,7 @@ public class FileSecurity
     /// <summary>
     /// Desencripta los datos
     /// </summary>
-    /// <param name="cipherText"></param>
+    /// <param name="cipherText">Código encriptado para desencriptar</param>
     /// <returns></returns>
     public static string Decrypt(string cipherText)
     {

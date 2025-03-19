@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -59,18 +58,16 @@ public class SessionManager : MonoBehaviour
         StartCoroutine(nameof(UserLogin));
     }
     /// <summary>
-    /// Accede al PHP con las credenciales de usuario
-    /// Recurre a las credenciales guardadas si "keep log" es verdadero (valor 1)
+    /// Inicia sesión con las credenciales guardadas de forma local
+    /// Accede si "keep log" es verdadero (valor 1)
     /// </summary>
-    public void AutoLogin()
+    private void AutoLogin()
     {
         string json = GetSessionToken(); // Recurre al json guardado
         if (PlayerPrefs.GetInt("keepLog") == 1 && json != "")
-        {
-            // Deserializa los datos
-            UserSession userSessionData = JsonUtility.FromJson<UserSession>(json);
-            if (sessionManager == null) sessionManager = new Session("", "", ""); // Inicializa si no existe
-            // Actualiza los valores de la sesión actual
+        {         
+            UserSession userSessionData = JsonUtility.FromJson<UserSession>(json);// Deserializa los datos
+            if (sessionManager == null) sessionManager = new Session("", "", ""); // Inicializa si no existe y asigna los valores
             sessionManager.session.nick = userSessionData.nick;
             sessionManager.session.mail = userSessionData.mail;
             sessionManager.session.pass = userSessionData.pass;
@@ -91,7 +88,7 @@ public class SessionManager : MonoBehaviour
     /// <param name="action"></param>
     public void SessionToggle(string action)
     {
-        if (sessionManager != null) StartCoroutine("UserSessionToggle", action);
+        if (sessionManager != null) StartCoroutine("ModifyUserSession", action);
         else Debug.Log("There's no user logged");
     }
     /// <summary>
@@ -107,7 +104,7 @@ public class SessionManager : MonoBehaviour
     /// <summary>
     /// Crea el JSON de la sesión activa en PlayerPrefs si "keepLog" es verdadero
     /// </summary>
-    void SaveSessionToken()
+    private void SaveSessionToken()
     {
         string json = JsonUtility.ToJson(sessionManager.session);
         string encryptedJson = FileSecurity.Encrypt(json);
@@ -117,7 +114,7 @@ public class SessionManager : MonoBehaviour
     /// <summary>
     /// Devuelve el JSON de la sesión activa
     /// </summary>
-    string GetSessionToken()
+    private string GetSessionToken()
     {
         string encryptedJson = PlayerPrefs.GetString("session", null);
         if (!string.IsNullOrEmpty(encryptedJson)) return FileSecurity.Decrypt(encryptedJson);
@@ -126,7 +123,7 @@ public class SessionManager : MonoBehaviour
     /// <summary>
     /// Limpia la sesión de PlayerPrefs
     /// </summary>
-    void ClearSessionToken()
+    private void ClearSessionToken()
     {
         PlayerPrefs.DeleteKey("session");
         PlayerPrefs.Save();
@@ -136,7 +133,7 @@ public class SessionManager : MonoBehaviour
     /// Inicia sesión en PHP
     /// </summary>
     /// <returns></returns>
-    IEnumerator UserLogin()
+    private IEnumerator UserLogin()
     {
         WWWForm form = new WWWForm();
         form.AddField("mail", sessionManager.session.mail);
@@ -165,7 +162,7 @@ public class SessionManager : MonoBehaviour
     /// Modifica el nick del usuario en PHP
     /// </summary>
     /// <returns></returns>
-    IEnumerator UserNickManage()
+    private IEnumerator UserNickManage()
     {
         WWWForm form = new WWWForm();
         form.AddField("mail", sessionManager.session.mail);
@@ -186,11 +183,11 @@ public class SessionManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// Cambia el estado de "offline" a "online" o viceversa en PHP
+    /// Cambia el estado en PHP
     /// </summary>
-    /// <param name="action"></param>
+    /// <param name="action">Alternar de "offline" a "online" o viceversa</param>
     /// <returns></returns>
-    IEnumerator UserSessionToggle(string action)
+    private IEnumerator ModifyUserSession(string action)
     {
         WWWForm form = new WWWForm();
         form.AddField("mail", sessionManager.session.mail);
