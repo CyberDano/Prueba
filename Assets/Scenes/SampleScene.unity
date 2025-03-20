@@ -962,7 +962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UserData: {fileID: 177292508}
   URL: http://stickrock.mygamesonline.org/
-  register: 3
+  register: 1
 --- !u!1 &178386071
 GameObject:
   m_ObjectHideFlags: 0

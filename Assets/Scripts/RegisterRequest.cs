@@ -46,10 +46,10 @@ public class RegisterRequest : MonoBehaviour
         {
             string[] text = ask.downloadHandler.text.Split("=JSON=");            
             register_name = text[0];
-            Debug.Log("Register name "+register_name);
+            Debug.Log("Register name: "+register_name);
             Register_tile tile = JsonUtility.FromJson<Register_tile>(text[1]);
             Debug.Log($"Max. world reached: {tile.world} - Max. level reached: {tile.level}");
         }
-        else Debug.LogError("Error: " + ask.error);
+        else Debug.Log("Error: " + ask.error);
     }
 }
